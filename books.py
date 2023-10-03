@@ -6,15 +6,19 @@ class BookBuilder:
 
     def set_title(self, title):
         self.book.title = title
+        return self
 
     def set_author(self, author):
         self.book.author = author
+        return self
 
     def set_type(self, book_type):
         self.book.book_type = book_type
+        return self
 
     def add_page(self, page):
         self.book.pages.append(page)
+        return self
 
     def build(self):
         return self.book
@@ -88,9 +92,9 @@ class BookGenerator:
         book_type = random.choice(["Scientific", "Novel", "Manual"])
 
         # Встановіть заголовок, автора та тип книги
-        book_builder.set_title("Random Book")
-        book_builder.set_author("Anonymous")
-        book_builder.set_type(book_type)
+        book_builder.set_title("Random Book") \
+                   .set_author("Anonymous") \
+                   .set_type(book_type)
 
         # Згенеруйте випадкову кількість сторінок
         num_pages = random.randint(50, 200)
